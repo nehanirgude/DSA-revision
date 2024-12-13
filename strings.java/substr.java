@@ -1,8 +1,9 @@
 public class substr {
-    public static String substring(String str, int si ,int ei){
-        String subString="";
-        for(int i=si; i<ei; i++){
-         subString+=str.charAt(i);
+      // si = starting index , ei= ending index
+    public static String substring(String str, int si ,int ei){ 
+        String subString="";   // new substring 
+        for(int i=si; i<ei; i++){  
+         subString+=str.charAt(i);  //concatenation
         }
         return subString;
 

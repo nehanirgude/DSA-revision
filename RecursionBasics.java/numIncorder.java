@@ -2,7 +2,7 @@ public class numIncorder {
 
     public static void IncNum(int n){
         if(n==1){
-            System.out.print(n+" ");
+            System.out.print(n);
             return;
         }
         IncNum(n-1);

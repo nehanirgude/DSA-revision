@@ -30,7 +30,7 @@ public class basicOperation {
        //contain element 
        //this operation checks wether element present in arralist or not
 
-       System.out.println(list.contains(7));
+       System.out.println(list.contains(7));  //output =true
 
 
 

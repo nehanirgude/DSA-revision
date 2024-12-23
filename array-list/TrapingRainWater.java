@@ -1,19 +1,47 @@
 import java.util.ArrayList;
-
+//brute force approach
 public class TrapingRainWater {
-    public static int storeWater(ArrayList<Integer>  height){
-        int maxWater=0;
-        for(int i=0; i< height.size(); i++){
-            for(int j=i+1; j<height.size(); j++){
-                int ht=Math.min(height.get(i),height.get(j));
-                int width=j-i;
-                int currentWater= ht*width;
-                maxWater=Math.max(maxWater,currentWater);
+    // public static int storeWater(ArrayList<Integer>  height){
+    //     int maxWater=0;
+    //     for(int i=0; i< height.size(); i++){
+    //         for(int j=i+1; j<height.size(); j++){
+    //             int ht=Math.min(height.get(i),height.get(j));
+    //             int width=j-i;
+    //             int currentWater= ht*width;
+    //             maxWater=Math.max(maxWater,currentWater);
                 
-            }
+    //         }
 
+    //     }
+    //     return maxWater;
+    // }
+
+
+    //two pointer approach
+    public static int storeWater(ArrayList<Integer> height){
+        int maxWater=0;
+        int lp=0;
+        int rp=height.size()-1;
+        while(lp<rp){
+            int ht=Math.min(height.get(lp),height.get(rp));
+            int width=rp-lp;
+            int currWater=ht*width;
+            maxWater=Math.max(maxWater,currWater);
+            
+            
+            //update ptr
+
+            if(height.get(lp)<height.get(rp)){
+                lp++;
+            }else{
+                rp--;
+            }
+            
+         
         }
         return maxWater;
+        
+
     }
 
     public static void main(String args[]){
@@ -30,7 +58,7 @@ public class TrapingRainWater {
         height.add(7);
         
      System.out.println(storeWater(height));
-        
+      
 
 
     }

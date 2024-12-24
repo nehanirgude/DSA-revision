@@ -4,11 +4,18 @@ public class Classesobj {
         // object declaration
 
         Pen p1 = new Pen(); // we have created pen obj called p1
-        p1.setColor("blue");
-        System.out.println(p1.color);
+        // p1.setColor("blue");
+        // System.out.println(p1.color);
 
         // p1.setTip(5);
         // System.out.println(p1.tip);
+
+        // if i make color property private then i cant access object properties by
+        // using
+        // dot =p1.color i camt access like this for that i have to use getter function
+
+        p1.setColor("blue");
+        System.out.println(p1.getColor());
 
     }
 
@@ -19,11 +26,15 @@ public class Classesobj {
 // syntax of writing a class
 
 class Pen {
-    String color;
+    private String color;
     int tip;
 
-    void setColor(String newColor) {
+    void setColor(String newColor) { // setter functions
         color = newColor;
+    }
+
+    String getColor() { // getter function
+        return this.color;
     }
 
     void SetTip(int newTip) {

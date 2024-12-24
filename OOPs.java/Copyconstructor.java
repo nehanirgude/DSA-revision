@@ -22,6 +22,7 @@ class Student {
         System.out.println("constructor called");
     }
 
+    // copy constructor
     Student(Student s1) {
         this.name = s1.name;
         this.rollNo = s1.rollNo;

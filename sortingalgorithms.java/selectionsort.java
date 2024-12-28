@@ -2,7 +2,7 @@ public class selectionsort {
     public static void selectionSort(int numbers[]){
         for(int i=0; i<numbers.length-1; i++){
             int minpos=i;
-            for(int j=0; j<numbers.length; j++){
+            for(int j=i+1; j<numbers.length; j++){
                 if(numbers[minpos]<numbers[j]){
                     minpos=j;
                 }

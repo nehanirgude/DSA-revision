@@ -13,6 +13,18 @@ public class Linkedlistop {
         }
     }
 
+    // method for printing the linked list data
+
+    public void print() {
+        Node temp = head;
+        while (temp != null) {
+
+            System.out.print(temp.data + "-> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
     public static Node head;
     public static Node tail;
 
@@ -56,9 +68,29 @@ public class Linkedlistop {
         // ll.head = new Node(1);
 
         ll.addFirst(1);
+        ll.print();
         ll.addFirst(2);
+        ll.print();
         ll.addLast(3);
+        ll.print();
         ll.addLast(4);
+        ll.print();
+    }
+
+    public static Node getHead() {
+        return head;
+    }
+
+    public static void setHead(Node head) {
+        Linkedlistop.head = head;
+    }
+
+    public static Node getTail() {
+        return tail;
+    }
+
+    public static void setTail(Node tail) {
+        Linkedlistop.tail = tail;
     }
 
 }

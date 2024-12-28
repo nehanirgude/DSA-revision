@@ -34,12 +34,31 @@ public class Linkedlistop {
         head = newNode;
     }
 
+    // add last
+    public void addLast(int data) {
+        // step1
+        Node newNode = new Node(data);
+        // special case
+        if (head == null) {
+            tail = head = newNode;
+            return;
+        }
+        // step2
+        tail.next = newNode;
+
+        // case3
+        tail = newNode;
+
+    }
+
     public static void main(String args[]) {
         Linkedlistop ll = new Linkedlistop();
         // ll.head = new Node(1);
 
         ll.addFirst(1);
         ll.addFirst(2);
+        ll.addLast(3);
+        ll.addLast(4);
     }
 
 }

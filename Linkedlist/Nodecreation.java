@@ -12,15 +12,14 @@ public class Nodecreation {
 
         }
 
-        public static Node head;
-        public static Node tail;
+    }
 
-        public static void main(String args[]) {
-            Nodecreation ll = new Nodecreation(); // obj of class nodecreation
-            ll.data = new Node(1);
+    public static Node head;
+    public static Node tail;
 
-        }
-
+    public static void main(String args[]) {
+        Nodecreation ll = new Nodecreation(); // obj of class nodecreation
+        ll.head = new Node(1); // stored the data 1 in node
     }
 
 }

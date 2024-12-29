@@ -62,6 +62,11 @@ public class Linkedlistop {
         tail = newNode;
 
     }
+    
+
+    
+
+
 
     public static void main(String args[]) {
         Linkedlistop ll = new Linkedlistop();
@@ -76,21 +81,4 @@ public class Linkedlistop {
         ll.addLast(4);
         ll.print();
     }
-
-    public static Node getHead() {
-        return head;
-    }
-
-    public static void setHead(Node head) {
-        Linkedlistop.head = head;
-    }
-
-    public static Node getTail() {
-        return tail;
-    }
-
-    public static void setTail(Node tail) {
-        Linkedlistop.tail = tail;
-    }
-
 }

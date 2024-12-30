@@ -1,6 +1,6 @@
 package Linkedlist;
 
-public class middle {
+public class opeartions {
     public static class Node {
 
         int data;
@@ -255,7 +255,7 @@ public class middle {
 
     public static void main(String args[]) {
         // obj creation
-        middle ll = new middle();
+        opeartions ll = new opeartions();
         ll.addFirst(1);
         ll.addFirst(2);
         ll.print();

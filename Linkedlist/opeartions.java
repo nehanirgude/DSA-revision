@@ -253,23 +253,30 @@ public class opeartions {
 
     }
 
-    public static void main(String args[]) {
-        // obj creation
-        opeartions ll = new opeartions();
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.print();
-        ll.addLast(3);
-        ll.print();
-        ll.addMiddle(2, 9);
-        ll.print();
-        ll.removeFirst();
-        ll.print();
-        ll.removeLast();
-        ll.print();
-        // System.out.println(ll.size);
+    // code for detecting the cycle in linkedList
+    public static boolean isCycle() {
+        Node slow = head;
+        Node fast = head;
 
-        System.out.println(ll.recSearch(3));
+        while (fast != null && fast.next != null) {
+            slow = slow.next; // +1
+            fast = fast.next.next; // +2
+            if (slow == fast) {
+                return true; // cycle does exist
+            }
+
+        }
+        return false; // cycle doesn't exist
+    }
+
+    public static void main(String args[]) {
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = head;
+        // loop formed as 1->1->2->3->1
+
+        System.out.println(isCycle());
 
     }
 

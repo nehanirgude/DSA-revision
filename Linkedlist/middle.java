@@ -185,7 +185,7 @@ public class middle {
             sz++;
 
         }
-        if (n == sz) {
+        if (n == sz) { // last se n means starting se head
             head = head.next; // removeFirst
             return;
 
@@ -202,6 +202,54 @@ public class middle {
         }
         prev.next = prev.next.next;
         return;
+
+    }
+    // slow-fast approach
+    // to check wether a linkedlist is palindrom or not
+
+    public Node findMid(Node head) { // helper function
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next; // +1
+            fast = fast.next.next; // +2
+        }
+        return slow; // slow is my middle
+    }
+
+    public boolean checkPalindrome() {
+        if (head == null || head.next == null) {
+            return true;
+        }
+        // step1 -find mid
+        Node midNode = findMid(head);
+
+        // step2-reverse 2nd half
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node right = prev;
+        Node left = head;
+
+        // step3-check left half & right half
+
+        while (right != null) {
+            if (left.data != right.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+
+        }
+
+        return true;
 
     }
 

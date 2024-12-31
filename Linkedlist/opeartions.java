@@ -363,6 +363,48 @@ public class opeartions {
         return merge(newLeft, newRight);
     }
 
+    // code for convert linked list in zig zag format
+
+    public void zigZag() {
+        // find mid
+        Node slow = head;
+        Node fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node mid = slow;
+
+        // reverse 2nd half
+        Node curr = mid.next;
+        mid.next = null;
+        Node prev = null;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+
+        }
+        Node left = head;
+        Node rigth = prev;
+        Node nextL, nextR;
+
+        // alt merge-zig-zag merge
+        while (left != null && rigth != null) {
+            nextL = left.next;
+            left.next = rigth;
+            nextR = rigth.next;
+            rigth.next = nextL;
+
+            left = nextL;
+            rigth = nextR;
+
+        }
+
+    }
+
     public static void main(String args[]) {
         // head = new Node(1);
         // Node temp = new Node(2);
@@ -384,8 +426,11 @@ public class opeartions {
 
         // 5->4->3->2->1
 
-        ll.print();
+        // ll.print();
         ll.head = ll.mergeSort(ll.head);
+        ll.print();
+
+        ll.zigZag();
         ll.print();
 
     }

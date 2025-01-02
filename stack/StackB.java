@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class StackB {
 
-    
+    public static class Stack {
         // implementation of stack using arraylist
 
         static ArrayList<Integer> list = new ArrayList<>();
@@ -40,7 +40,6 @@ public class StackB {
 
     }
 
-
     public static void main(String args[]) {
         Stack s = new Stack();
         s.push(1);
@@ -56,5 +55,4 @@ public class StackB {
         }
 
     }
-
-
+}

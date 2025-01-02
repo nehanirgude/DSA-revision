@@ -66,6 +66,8 @@ public class StackA {
             s.pop();
         }
 
+        // stack using java collection framework
+
     }
 
 }

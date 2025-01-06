@@ -86,6 +86,43 @@ public class practice2 {
 
     }
 
+    /*
+     * Given an array of integers arr[], the task is to move all the zeros to the
+     * end of the array while maintaining the relative order of all non-zero
+     * elements.
+     * 
+     * Examples:
+     * 
+     * Input: arr[] = [1, 2, 0, 4, 3, 0, 5, 0]
+     * Output: arr[] = [1, 2, 4, 3, 5, 0, 0, 0]
+     * Explanation: There are three 0s that are moved to the end
+     */
+
+    public static void moveNonZerosToEnd(int arr[]) {
+
+        int temp[] = new int[arr.length];
+        int j = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                temp[j++] = arr[i];
+            }
+        }
+
+        // remaining elements
+
+        while (j < arr.length) {
+            temp[j++] = 0;
+
+        }
+
+        // copy all elements from temp to array
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = temp[i];
+
+        }
+    }
+
     public static void main(String args[]) {
         // int arr[] = { 12, 35, 1, 10, 34, 1 };
         // int att[] = { 1, 14, 2, 16, 10, 20 };
@@ -93,8 +130,15 @@ public class practice2 {
         // System.out.println(secondLargest(arr));
         // System.out.println(thirdLargest(att));
 
-        int arr[] = { 10, 3, 5, 6, 20 };
-        System.out.println(maxTripletProd(arr));
+        // int arr[] = { 10, 3, 5, 6, 20 };
+        // System.out.println(maxTripletProd(arr));
+
+        int arr[] = { 1, 2, 0, 4, 3, 0, 5, 0 };
+
+        moveNonZerosToEnd(arr);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+        }
 
     }
 

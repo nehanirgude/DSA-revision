@@ -63,12 +63,38 @@ public class practice2 {
 
     }
 
+    // maximum triplets product
+    /*
+     * nput: [10, 3, 5, 6, 20]
+     * Output: 1200
+     * Explanation: Multiplication of 10, 6 and 20
+     */
+
+    public static int maxTripletProd(int arr[]) {
+        int maxProd = 0;
+
+        for (int i = 0; i < arr.length - 2; i++) {
+            for (int j = i + 1; j < arr.length - 1; j++) {
+                for (int k = j + 1; k < arr.length; k++) {
+                    int currProd = arr[i] * arr[j] * arr[k];
+                    maxProd = Math.max(maxProd, currProd);
+
+                }
+            }
+        }
+        return maxProd;
+
+    }
+
     public static void main(String args[]) {
         // int arr[] = { 12, 35, 1, 10, 34, 1 };
-        int att[] = { 1, 14, 2, 16, 10, 20 };
+        // int att[] = { 1, 14, 2, 16, 10, 20 };
         // secondLargest(arr);
         // System.out.println(secondLargest(arr));
-        System.out.println(thirdLargest(att));
+        // System.out.println(thirdLargest(att));
+
+        int arr[] = { 10, 3, 5, 6, 20 };
+        System.out.println(maxTripletProd(arr));
 
     }
 

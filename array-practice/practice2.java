@@ -121,6 +121,34 @@ public class practice2 {
             arr[i] = temp[i];
 
         }
+    } /*
+       * given an array arr[] and an integer K, the task is to reverse every subarray
+       * formed by consecutive K elements.
+       * 
+       * Examples:
+       * 
+       * Input: arr[] = [1, 2, 3, 4, 5, 6, 7, 8, 9], K = 3
+       * Output: 3, 2, 1, 6, 5, 4, 9, 8, 7
+       */
+
+    public static void reverseSubArr(int arr[], int k) {
+        int n = arr.length;
+        for (int i = 0; i < arr.length; i += k) {
+            int left = i;
+
+            int right = Math.min(i + k - 1, n - 1); // this will return minimum btn this two and it will be my rigth
+                                                    // boundry
+            int temp = 0;
+            while (left < right) {
+                temp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = temp;
+                left++;
+                right--;
+            }
+
+        }
+
     }
 
     public static void main(String args[]) {
@@ -133,11 +161,19 @@ public class practice2 {
         // int arr[] = { 10, 3, 5, 6, 20 };
         // System.out.println(maxTripletProd(arr));
 
-        int arr[] = { 1, 2, 0, 4, 3, 0, 5, 0 };
+        // int arr[] = { 1, 2, 0, 4, 3, 0, 5, 0 };
 
-        moveNonZerosToEnd(arr);
+        // moveNonZerosToEnd(arr);
+        // for (int i = 0; i < arr.length; i++) {
+        // System.out.print(arr[i]);
+        // }
+
+        int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        int k = 3;
+        reverseSubArr(arr, k);
+
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
+            System.out.print(arr[i] + " ");
         }
 
     }

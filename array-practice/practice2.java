@@ -8,29 +8,67 @@ public class practice2 {
     // Explanation: The largest element of the array is 35 and the second largest
     // element is 34.
 
-    public static void secondLargest(int arr[]) {
+    public static int secondLargest(int arr[]) {
 
         // first sort the array using bubblesort
-        for (int turn = 0; turn < arr.length - 1; turn++) {
-            for (int j = 0; j < arr.length - turn - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+        // aproach one
+        // for (int turn = 0; turn < arr.length - 1; turn++) {
+        // for (int j = 0; j < arr.length - turn - 1; j++) {
+        // if (arr[j] > arr[j + 1]) {
+        // int temp = arr[j];
+        // arr[j] = arr[j + 1];
+        // arr[j + 1] = temp;
 
-                }
+        // }
 
+        // }
+        // }
+        // return-1;
+
+        // // now we get sorted array
+        // System.out.println(arr[arr.length - 2]);
+
+        // approach2
+
+        // sorting
+        Arrays.sort(arr);
+
+        for (int i = arr.length - 2; i >= 0; i--) {
+
+            if (arr[i] != arr[arr.length - 1]) {
+                return arr[i];
             }
-        }
 
-        // now we get sorted array
-        System.out.println(arr[arr.length - 2]);
+        }
+        return -1;
+
+    }
+    // program for third largest element
+    /*
+     * Input: arr[] = {1, 14, 2, 16, 10, 20}
+     * Output: The third Largest element is 14
+     * 
+     * Explanation: Largest element is 20, second largest element is 16
+     * and third largest element is 14
+     */
+
+    public static int thirdLargest(int arr[]) {
+
+        Arrays.sort(arr);
+
+        // after sorting
+        // since all elements are distict no need to chech arr[i]!=arr[arr.length-1]
+
+        return arr[arr.length - 3];
 
     }
 
     public static void main(String args[]) {
-        int arr[] = { 12, 35, 1, 10, 34, 1 };
-        secondLargest(arr);
+        // int arr[] = { 12, 35, 1, 10, 34, 1 };
+        int att[] = { 1, 14, 2, 16, 10, 20 };
+        // secondLargest(arr);
+        // System.out.println(secondLargest(arr));
+        System.out.println(thirdLargest(att));
 
     }
 

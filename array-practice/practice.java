@@ -8,6 +8,7 @@ public class practice {
         int i = 0;
         int j = 0;
         int k = 0;
+        
         while (i < n && j < m) {
             if (nums1[i] < nums2[j]) {
                 mergedArr[k] = nums1[i];

@@ -122,14 +122,40 @@ public class practice2 {
 
         }
     } /*
-       * given an array arr[] and an integer K, the task is to reverse every subarray
-       * formed by consecutive K elements.
+       * Given a non-negative number represented as an array of digits, add 1 to the
+       * number ( increment the number represented by the digits ). The digits are
+       * stored such that the most significant digit is the first element of the
+       * array.
        * 
-       * Examples:
+       * Examples :
        * 
-       * Input: arr[] = [1, 2, 3, 4, 5, 6, 7, 8, 9], K = 3
-       * Output: 3, 2, 1, 6, 5, 4, 9, 8, 7
+       * Input : [1, 2, 4]
+       * Output : [1, 2, 5]
+       * Input : [9, 9, 9]
+       * Output : [1, 0, 0, 0]
        */
+
+    public static void addOne(Vector<Integer> digits) {
+
+        int index = digits.size() - 1; // last element
+
+        // if last digit is 9
+        while (index >= 0 && digits.get(index) == 9) {
+
+            digits.set(index, 0);
+            index--;
+
+            if (index < 0) { // -1 // all are 9
+                digits.set(0, 1);
+
+                digits.add(digits.size(), 0);
+
+            } else {
+                digits.set(index, digits.get(index) + 1);
+            }
+
+        }
+    }
 
     public static void reverseSubArr(int arr[], int k) {
         int n = arr.length;
@@ -168,13 +194,18 @@ public class practice2 {
         // System.out.print(arr[i]);
         // }
 
-        int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        int k = 3;
-        reverseSubArr(arr, k);
+        // int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        // int k = 3;
+        // reverseSubArr(arr, k);
 
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        // for (int i = 0; i < arr.length; i++) {
+        // System.out.print(arr[i] + " ");
+        // }
+
+        Vector<Integer> digits = new Vector<Integer>(Arrays.asList(1, 7, 8, 9));
+        addOne(digits);
+        for (int digit : digits)
+            System.out.print(digit + " ");
 
     }
 

@@ -177,6 +177,30 @@ public class practice2 {
 
     }
 
+    // remove all occurrence
+    /*
+     * Input: arr[] = [3, 2, 2, 3], ele = 3
+     * Output: 2
+     */
+
+    public static int removeOccurence(int arr[], int ele) {
+
+        int temp[] = new int[arr.length];
+        int k = 0;
+        for (int i = 0; i <arr.length; i++) {
+
+            if (arr[i] != ele) {
+                temp[k] = arr[i];
+                k++;
+
+            }
+
+        }
+
+        return k;
+
+    }
+
     public static void main(String args[]) {
         // int arr[] = { 12, 35, 1, 10, 34, 1 };
         // int att[] = { 1, 14, 2, 16, 10, 20 };
@@ -202,11 +226,17 @@ public class practice2 {
         // System.out.print(arr[i] + " ");
         // }
 
-        Vector<Integer> digits = new Vector<Integer>(Arrays.asList(1, 7, 8, 9));
-        addOne(digits);
-        for (int digit : digits)
-            System.out.print(digit + " ");
+        // Vector<Integer> digits = new Vector<Integer>(Arrays.asList(1, 7, 8, 9));
+        // addOne(digits);
+        // for (int digit : digits)
+        // System.out.print(digit + " ");
 
+        // remove occurence
+
+        int arr[] = { 3, 2, 2, 3 };
+        int ele = 3;
+
+        System.out.println(removeOccurence(arr, ele));
     }
 
 }

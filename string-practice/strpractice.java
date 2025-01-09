@@ -60,6 +60,24 @@ public class strpractice {
 
     }
 
+    // Input: str = “i.like.this.program.very.much”
+    // Output: str = “much.very.program.this.like.i”
+
+    public static String reverseOrder(String str) {
+        StringBuilder sb = new StringBuilder(" ");
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            if (str.charAt(i) == '.') {
+                for (int j = i; j < str.length(); j++) {
+                    sb.append(str.charAt(i));
+                }
+            }
+
+        }
+        return sb.toString();
+
+    }
+
     public static void main(String args[]) {
 
         // String str = "noon";
@@ -70,8 +88,12 @@ public class strpractice {
         // System.out.println(shortestpath(str));
 
         // 3
-        String str = "i am neha";
-        System.out.println(strUpperCase(str));
+        // String str = "i am neha";
+        // System.out.println(strUpperCase(str));
+
+        // 4
+        String str = "i.like.this.program.very.much";
+        System.out.println(reverseOrder(str));
 
     }
 

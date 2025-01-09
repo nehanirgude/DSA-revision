@@ -63,18 +63,56 @@ public class strpractice {
     // Input: str = “i.like.this.program.very.much”
     // Output: str = “much.very.program.this.like.i”
 
-    public static String reverseOrder(String str) {
-        StringBuilder sb = new StringBuilder(" ");
+    public static String reverseWords(String str) {
+        // Split the string by dots, ignoring empty parts caused by multiple dots
+        String[] words = str.split("\\.+");
 
-        for (int i = str.length() - 1; i >= 0; i--) {
-            if (str.charAt(i) == '.') {
-                for (int j = i; j < str.length(); j++) {
-                    sb.append(str.charAt(i));
-                }
+        // Create a StringBuilder to construct the result
+        StringBuilder result = new StringBuilder();
+
+        // Iterate over the words array in reverse order
+        for (int i = words.length - 1; i >= 0; i--) {
+            // Add the word to the result
+            result.append(words[i]);
+
+            // Append a dot after the word, if it's not the last word
+            if (i > 0) {
+                result.append(".");
             }
+        }
+
+        // Handle leading/trailing dots:
+        // If the original string starts or ends with dots, add them accordingly
+        if (str.startsWith(".")) {
+            result.insert(0, ".");
+        }
+        if (str.endsWith(".")) {
+            result.append(".");
+        }
+
+        return result.toString();
+    }
+
+    // longest common prefix
+    // Input: arr[] = [“geeksforgeeks”, “geeks”, “geek”, “geezer”]
+    // Output: “gee”
+
+    public static String longestCommonPref(String arr[]) {
+
+        Arrays.sort(arr);
+        String first = arr[0];
+        String last = arr[arr.length - 1];
+        int minLength = Math.min(first.length(), last.length());
+
+        // find common prefix between first and last
+        int i = 0;
+        while (i < minLength && first.charAt(i) == last.charAt(i)) {
+
+            i++;
 
         }
-        return sb.toString();
+
+        return first.substring(0, i);
 
     }
 
@@ -92,8 +130,12 @@ public class strpractice {
         // System.out.println(strUpperCase(str));
 
         // 4
-        String str = "i.like.this.program.very.much";
-        System.out.println(reverseOrder(str));
+        // String str = "i.like.this.program.very.much";
+        // System.out.println(reverseWords(str));
+
+        // 5
+        String arr[] = { "geeksforgeeks", "geeks", "geek", "geezer" };
+        System.out.println(longestCommonPref(arr));
 
     }
 
